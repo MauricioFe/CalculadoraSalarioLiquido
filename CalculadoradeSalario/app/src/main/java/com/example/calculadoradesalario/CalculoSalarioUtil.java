@@ -45,4 +45,8 @@ public class CalculoSalarioUtil {
         return descontoIrrf;
     }
 
+    public static double salarioLiquido(double salariobruto,double baseCalculo){
+        return  salariobruto - descontoIRRF(baseCalculo) - descontoInss(salariobruto);
+    }
+
 }

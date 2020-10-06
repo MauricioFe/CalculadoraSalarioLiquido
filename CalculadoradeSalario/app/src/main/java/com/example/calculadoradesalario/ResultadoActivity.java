@@ -24,6 +24,11 @@ public class ResultadoActivity extends AppCompatActivity {
     double outro = 0;
     Button btnVoltar;
     TextView txvSalarioLiquido;
+    TextView txvSalarioBruto;
+    TextView txvINSS;
+    TextView txvIRRF;
+    TextView txvOutros;
+    TextView txvDesconto;
 
 
     @Override
@@ -33,6 +38,11 @@ public class ResultadoActivity extends AppCompatActivity {
         recebeDados();
         btnVoltar = findViewById(R.id.resultado_btn_voltar);
         txvSalarioLiquido = findViewById(R.id.resultado_txv_result_liquido);
+        txvSalarioBruto = findViewById(R.id.resultado_txv_result_bruto);
+        txvINSS = findViewById(R.id.resultado_txv_result_INSS);
+        txvIRRF = findViewById(R.id.resultado_txv_result_IRRF);
+        txvOutros = findViewById(R.id.resultado_txv_result_outros);
+        txvDesconto = findViewById(R.id.resultado_txv_result_desconto);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,11 +50,21 @@ public class ResultadoActivity extends AppCompatActivity {
             }
         });
 
-        baseCalculo = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto);
+        baseCalculo = (salariobruto - CalculoSalarioUtil.descontoInss(salariobruto));
         baseCalculo -= dependentes * 189.59;
-        salarioLiquido = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto) - CalculoSalarioUtil.descontoIRRF(baseCalculo);
+        salarioLiquido = CalculoSalarioUtil.salarioLiquido(salariobruto, baseCalculo) - outro;
+
         NumberFormat formatoBR = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
+
         txvSalarioLiquido.setText(formatoBR.format(salarioLiquido));
+        txvSalarioBruto.setText(formatoBR.format(salariobruto));
+        txvINSS.setText(formatoBR.format(CalculoSalarioUtil.descontoInss(salariobruto)));
+        txvIRRF.setText(formatoBR.format(CalculoSalarioUtil.descontoIRRF(baseCalculo)));
+        txvOutros.setText(formatoBR.format(outro));
+        double desconto = CalculoSalarioUtil.descontoInss(salariobruto) + CalculoSalarioUtil.descontoIRRF(baseCalculo);
+        double descontoPorcentagem = (desconto * 100) / salariobruto;
+        DecimalFormat format = new DecimalFormat("#.##");
+        txvDesconto.setText(format.format(descontoPorcentagem).replace(".", ",") + "%");
     }
 
 
@@ -55,6 +75,7 @@ public class ResultadoActivity extends AppCompatActivity {
             salariobruto = Double.parseDouble(Objects.requireNonNull(intent.getStringExtra(MainActivity.SALARIO_BRUTO)));
             dependentes = Integer.parseInt(Objects.requireNonNull(intent.getStringExtra(MainActivity.NUMERO_DEPENDENTES)));
             outro = Double.parseDouble(Objects.requireNonNull(intent.getStringExtra(MainActivity.OUTROS)));
+
         }
     }
 }
