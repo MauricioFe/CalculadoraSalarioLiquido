@@ -19,10 +19,12 @@ import java.util.Objects;
 public class ResultadoActivity extends AppCompatActivity {
     double salariobruto = 0;
     double salarioLiquido = 0;
+    double baseCalculo = 0;
     int dependentes = 0;
     double outro = 0;
     Button btnVoltar;
-    TextView edtSalarioLiquido;
+    TextView txvSalarioLiquido;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class ResultadoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resultado);
         recebeDados();
         btnVoltar = findViewById(R.id.resultado_btn_voltar);
-        edtSalarioLiquido = findViewById(R.id.resultado_txv_result_liquido);
+        txvSalarioLiquido = findViewById(R.id.resultado_txv_result_liquido);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,9 +40,11 @@ public class ResultadoActivity extends AppCompatActivity {
             }
         });
 
-        salarioLiquido = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto);
+        baseCalculo = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto);
+        baseCalculo -= dependentes * 189.59;
+        salarioLiquido = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto) - CalculoSalarioUtil.descontoIRRF(baseCalculo);
         NumberFormat formatoBR = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
-        edtSalarioLiquido.setText(formatoBR.format(salarioLiquido));
+        txvSalarioLiquido.setText(formatoBR.format(salarioLiquido));
     }
 
 
