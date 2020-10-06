@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String SALARIO_BRUTO = "salario_bruto";
+    public static final String NUMERO_DEPENDENTES = "numero_dependentes";
+    public static final String OUTROS = "outros";
     EditText edtSalario;
     EditText edtDependentes;
     EditText edtOutros;
@@ -27,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
-                intent.putExtra("salario_bruto", edtSalario.getText());
-                intent.putExtra("numero_dependentes", edtDependentes.getText());
-                intent.putExtra("outros", edtOutros.getText());
+                intent.putExtra(SALARIO_BRUTO, edtSalario.getText().toString());
+                intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString());
+                intent.putExtra(OUTROS, edtOutros.getText().toString());
 
                 startActivity(intent);
             }
