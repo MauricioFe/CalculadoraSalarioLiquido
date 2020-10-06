@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+android:background="#222"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,26 +13,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand"
         android:text="Calculadora de Salário Líquido"
-        android:textColor="@android:color/black"
+        android:textColor="#f0f0f5"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100000024" />
-
-    <EditText
-        android:id="@+id/main_edt_outros"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="@+id/main_txv_outros"
-        app:layout_constraintEnd_toEndOf="@+id/main_edt_dependentes"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/main_txv_outros"
-        app:layout_constraintTop_toTopOf="@+id/main_txv_outros"
-        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/main_txv_outros"
@@ -41,7 +29,7 @@
         android:layout_marginTop="44dp"
         android:fontFamily="@font/quicksand"
         android:text="Outros descontos \t R$"
-        android:textColor="@android:color/black"
+        android:textColor="#f0f0f5"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/main_txv_dependentes"
         app:layout_constraintTop_toBottomOf="@+id/main_txv_dependentes" />
@@ -54,7 +42,7 @@
         android:layout_marginTop="76dp"
         android:fontFamily="@font/quicksand"
         android:text="Salário Bruto \t R$"
-        android:textColor="@android:color/black"
+        android:textColor="#f0f0f5"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_titulo" />
@@ -66,17 +54,37 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/quicksand"
         android:text="Número de Dependentes"
-        android:textColor="@android:color/black"
+        android:textColor="#f0f0f5"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/main_txv_salario_bruto"
         app:layout_constraintTop_toBottomOf="@+id/main_txv_salario_bruto" />
 
     <EditText
+        android:id="@+id/main_edt_salario_bruto"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/input_web"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textColor="#b6b6b6"
+        app:layout_constraintBottom_toBottomOf="@+id/main_txv_salario_bruto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toEndOf="@+id/main_txv_salario_bruto"
+        app:layout_constraintTop_toTopOf="@+id/main_txv_salario_bruto" />
+
+    <EditText
         android:id="@+id/main_edt_dependentes"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/input_web"
         android:ems="10"
+        android:hint="0"
         android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textColor="#b6b6b6"
         app:layout_constraintBottom_toBottomOf="@+id/main_txv_dependentes"
         app:layout_constraintEnd_toEndOf="@+id/main_edt_salario_bruto"
         app:layout_constraintHorizontal_bias="1.0"
@@ -85,22 +93,27 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <EditText
-        android:id="@+id/main_edt_salario_bruto"
+        android:id="@+id/main_edt_outros"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/input_web"
         android:ems="10"
+        android:hint="0.00"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="@+id/main_txv_salario_bruto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toEndOf="@+id/main_txv_salario_bruto"
-        app:layout_constraintTop_toTopOf="@+id/main_txv_salario_bruto" />
+        android:padding="10dp"
+        android:textColor="#b6b6b6"
+        app:layout_constraintBottom_toBottomOf="@+id/main_txv_outros"
+        app:layout_constraintEnd_toEndOf="@+id/main_edt_dependentes"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/main_txv_outros"
+        app:layout_constraintTop_toTopOf="@+id/main_txv_outros"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/main_btn_calcular"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#474747"
+        android:background="@drawable/button_redondo"
         android:fontFamily="@font/quicksand"
         android:text="Calcular"
         android:textAllCaps="false"
