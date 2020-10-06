@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 public class ResultadoActivity extends AppCompatActivity {
@@ -34,8 +37,10 @@ public class ResultadoActivity extends AppCompatActivity {
                 startActivity(new Intent(ResultadoActivity.this, MainActivity.class));
             }
         });
+
         salarioLiquido = salariobruto - CalculoSalarioUtil.descontoInss(salariobruto);
-        edtSalarioLiquido.setText(String.valueOf(salarioLiquido));
+        NumberFormat formatoBR = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
+        edtSalarioLiquido.setText(formatoBR.format(salarioLiquido));
     }
 
 
