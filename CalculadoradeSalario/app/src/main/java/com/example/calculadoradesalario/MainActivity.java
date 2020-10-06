@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(SALARIO_BRUTO, edtSalario.getText().toString());
                     intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString().equals("") ? "0" : edtDependentes.getText().toString());
                     intent.putExtra(OUTROS, edtOutros.getText().toString().equals("") ? "0" : edtOutros.getText().toString());
-
                     startActivity(intent);
                 } else {
                     new AlertDialog.Builder(MainActivity.this).setTitle("Erro")
