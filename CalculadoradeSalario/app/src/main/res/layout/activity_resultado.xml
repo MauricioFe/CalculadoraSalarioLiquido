@@ -6,4 +6,237 @@
     android:layout_height="match_parent"
     tools:context=".ResultadoActivity">
 
+    <Button
+        android:id="@+id/main_btn_calcular2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_redondo"
+        android:fontFamily="@font/quicksand"
+        android:text="Calcular"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938" />
+
+    <TextView
+        android:id="@+id/resultado_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="Resultado"
+        android:textColor="#f0f0f5"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <TextView
+        android:id="@+id/resultado_txv_salario_bruto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Salário Bruto"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/resultado_titulo"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultado_titulo" />
+
+    <TextView
+        android:id="@+id/resultado_txv_inss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand"
+        android:text="INSS"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/resultado_txv_salario_bruto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/resultado_txv_salario_bruto"
+        app:layout_constraintTop_toBottomOf="@+id/resultado_txv_salario_bruto" />
+
+    <TextView
+        android:id="@+id/resultado_txv_irrf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
+        android:text="IRRF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/resultado_txv_inss"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/resultado_txv_inss"
+        app:layout_constraintTop_toBottomOf="@+id/resultado_txv_inss" />
+
+    <TextView
+        android:id="@+id/resultado_txv_outros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Outros Descontos"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/resultado_txv_irrf"
+        app:layout_constraintTop_toBottomOf="@+id/resultado_txv_irrf" />
+
+    <TextView
+        android:id="@+id/resultado_txv_result_bruto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resultado_txv_salario_bruto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/resultado_txv_salario_bruto"
+        app:layout_constraintTop_toTopOf="@+id/resultado_txv_salario_bruto" />
+
+    <TextView
+        android:id="@+id/resultado_txv_result_INSS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="TextView"
+        android:textColor="#CC0C0C"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resultado_txv_inss"
+        app:layout_constraintEnd_toEndOf="@+id/resultado_txv_result_bruto"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/resultado_txv_inss"
+        app:layout_constraintTop_toTopOf="@+id/resultado_txv_inss" />
+
+    <TextView
+        android:id="@+id/resultado_txv_result_IRRF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="239dp"
+        android:fontFamily="@font/quicksand"
+        android:text="TextView"
+        android:textColor="#CC0C0C"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resultado_txv_irrf"
+        app:layout_constraintEnd_toEndOf="@+id/resultado_txv_result_INSS"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/resultado_txv_irrf"
+        app:layout_constraintTop_toTopOf="@+id/resultado_txv_irrf" />
+
+    <TextView
+        android:id="@+id/resultado_txv_result_outros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="TextView"
+        android:textColor="#CC0C0C"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resultado_txv_outros"
+        app:layout_constraintEnd_toEndOf="@+id/resultado_txv_result_IRRF"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/resultado_txv_outros"
+        app:layout_constraintTop_toTopOf="@+id/resultado_txv_outros" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_salario"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/input_web"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/resultado_txv_result_liquido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="R$ 4.007,94"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/reaultado_txv_liquido"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.67"
+                app:layout_constraintStart_toEndOf="@+id/reaultado_txv_liquido"
+                app:layout_constraintTop_toTopOf="@+id/reaultado_txv_liquido" />
+
+            <TextView
+                android:id="@+id/reaultado_txv_liquido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salário Liquido"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.508" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_desconto"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/input_web"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/card_salario"
+        app:layout_constraintStart_toStartOf="@+id/card_salario"
+        app:layout_constraintTop_toBottomOf="@+id/card_salario"
+        app:layout_constraintVertical_bias="0.17000002">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/resultado_txv_result_desconto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="18,55%"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/reaultado_txv_desconto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.67"
+                app:layout_constraintStart_toEndOf="@+id/reaultado_txv_desconto"
+                app:layout_constraintTop_toTopOf="@+id/reaultado_txv_desconto" />
+
+            <TextView
+                android:id="@+id/reaultado_txv_desconto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desconto"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.508" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

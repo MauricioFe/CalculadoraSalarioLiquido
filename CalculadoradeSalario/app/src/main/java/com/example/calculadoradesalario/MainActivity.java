@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
                 intent.putExtra(SALARIO_BRUTO, edtSalario.getText().toString());
-                intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString());
-                intent.putExtra(OUTROS, edtOutros.getText().toString());
+                intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString().equals("") ? "0" : edtDependentes.getText().toString());
+                intent.putExtra(OUTROS, edtOutros.getText().toString().equals("") ? "0" : edtOutros.getText().toString());
 
                 startActivity(intent);
             }
