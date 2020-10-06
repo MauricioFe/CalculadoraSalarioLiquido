@@ -1,5 +1,6 @@
 package com.example.calculadoradesalario;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,13 +30,21 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
-                intent.putExtra(SALARIO_BRUTO, edtSalario.getText().toString());
-                intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString().equals("") ? "0" : edtDependentes.getText().toString());
-                intent.putExtra(OUTROS, edtOutros.getText().toString().equals("") ? "0" : edtOutros.getText().toString());
+                if (edtSalario.getText().length() > 0) {
+                    Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
+                    intent.putExtra(SALARIO_BRUTO, edtSalario.getText().toString());
+                    intent.putExtra(NUMERO_DEPENDENTES, edtDependentes.getText().toString().equals("") ? "0" : edtDependentes.getText().toString());
+                    intent.putExtra(OUTROS, edtOutros.getText().toString().equals("") ? "0" : edtOutros.getText().toString());
 
-                startActivity(intent);
+                    startActivity(intent);
+                } else {
+                    new AlertDialog.Builder(MainActivity.this).setTitle("Erro")
+                            .setMessage("Preencha ao menos o campo de salário bruto")
+                            .setNeutralButton("OK", null).show();
+                }
             }
+
         });
+
     }
 }
